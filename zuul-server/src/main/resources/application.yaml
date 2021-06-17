@@ -1,0 +1,35 @@
+#1. 端口
+#2. 名字
+#3. eureka服务的地址
+#4. zuul的路由配置
+server:
+  port: 9000
+spring:
+  application:
+    name: api-web-zuul
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://127.0.0.1:9999/eureka
+  instance:
+    prefer-ip-address: true
+    #将ip地址注册到eureka服务 而不是 hostname主机名
+zuul:
+  retryable: true
+  routes:
+    web-service: /web/**
+ribbon:
+  ConnectTimeout: 100
+  ReadTimeout: 600
+  OkToRetryOnAllOperations: true
+  MaxAutoRetriesNextServer: 2
+  MaxAutoRetries: 1
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000

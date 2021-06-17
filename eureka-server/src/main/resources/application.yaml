@@ -1,0 +1,15 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: eureka-web-server
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://127.0.0.1:${server.port}/eureka
+  server:
+    enable-self-preservation: false # Eureka自我保护机制，true打开/false禁用，默认打开状态，建议生产环境打开此配置。
+    eviction-interval-timer-in-ms: 5000 # 修改检查失效服务的时间

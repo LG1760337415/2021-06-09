@@ -1,0 +1,26 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: web-service
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/ypg?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+  rabbitmq:
+    host: 8.142.12.101
+    username: admin
+    password: admin
+  redis:
+    host: 8.142.12.101
+    password: 123456
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://127.0.0.1:9999/eureka
+  instance:
+    prefer-ip-address: true

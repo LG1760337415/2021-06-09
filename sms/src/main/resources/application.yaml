@@ -1,0 +1,23 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: sms
+  rabbitmq:
+    host: 8.142.12.101
+    username: admin
+    password: admin
+#    virtual-host: /lisi
+  redis:
+    host: 8.142.12.101
+    password: 123456
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://127.0.0.1:9999/eureka
+  instance:
+    prefer-ip-address: true
