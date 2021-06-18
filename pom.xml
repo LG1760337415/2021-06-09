@@ -13,6 +13,7 @@
         <module>zuul-server</module>
         <module>web-service</module>
         <module>sms</module>
+        <module>youpinggou-web-auth</module>
     </modules>
 
     <parent>
@@ -35,6 +36,8 @@
         <lombok.version>1.16.20</lombok.version>
         <fastjson.version>1.2.9</fastjson.version>
         <mapper.version>3.5.2</mapper.version>
+        <jjwt.version>0.7.0</jjwt.version>
+        <joda-time.version>2.9.7</joda-time.version>
     </properties>
 
 
@@ -52,6 +55,18 @@
     <!-- 规范版本，类似于java里面的接口，并不做具体的导入依赖 -->
     <dependencyManagement>
         <dependencies>
+            <!-- jwt依赖的jar包的坐标 -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
+            </dependency>
             <!-- springCloud -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>

@@ -11,6 +11,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/private/pom.xml" />
+        <option value="$PROJECT_DIR$/youpinggou-web-auth-common/pom.xml" />
       </set>
     </option>
   </component>

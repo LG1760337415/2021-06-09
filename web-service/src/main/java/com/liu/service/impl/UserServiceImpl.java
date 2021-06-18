@@ -35,4 +35,10 @@ public class UserServiceImpl implements IUserService {
     public List<User> getUserList(){
         return userMapper.selectAll();
     }
+
+    @Override
+    public User login(User user) {
+        System.out.println("查询用户信息");
+        return null;
+    }
 }

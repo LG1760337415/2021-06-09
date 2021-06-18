@@ -14,4 +14,6 @@ import java.util.List;
 public interface IUserService {
     void saveUser(User user);
     List<User> getUserList();
+
+    User login(User user);
 }

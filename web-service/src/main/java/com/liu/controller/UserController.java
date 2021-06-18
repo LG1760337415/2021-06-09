@@ -1,6 +1,7 @@
 package com.liu.controller;
 
 import com.liu.pojo.BaseResult;
+import com.liu.pojo.JWTResult;
 import com.liu.pojo.User;
 import com.liu.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.sql.Timestamp;
 
 /**
  * @author 飞翔天鸟
@@ -25,7 +28,6 @@ public class UserController {
     private IUserService userService;
     @PostMapping("/regist")
     public BaseResult regist(@RequestBody User user){
-
         System.out.println(user);
         String code = redisTemplate.opsForValue().get(user.getMobile());
         System.out.println(code);
@@ -34,5 +36,12 @@ public class UserController {
         }
         userService.saveUser(user);
         return new BaseResult(200,"增加成功");
+    }
+    @PostMapping("/login")
+    public JWTResult login(@RequestBody User user){
+        System.out.println(user);
+        userService.login(user);
+        long time = 2222;
+        return new JWTResult(200,"登录成功","12","DFASDFA",new Timestamp(222));
     }
 }

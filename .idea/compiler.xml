@@ -8,9 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="zuul-server" />
+        <module name="youpinggou-web-auth-common" />
+        <module name="web-pojo" />
+        <module name="youpinggou-web-auth-service" />
         <module name="sms" />
         <module name="eureka-server" />
-        <module name="web-pojo" />
         <module name="web-service" />
       </profile>
     </annotationProcessing>
@@ -26,6 +28,9 @@
       <module name="sms" options="-parameters" />
       <module name="web-pojo" options="-parameters" />
       <module name="web-service" options="-parameters" />
+      <module name="youpinggou-web-auth" options="" />
+      <module name="youpinggou-web-auth-common" options="-parameters" />
+      <module name="youpinggou-web-auth-service" options="-parameters" />
       <module name="zuul-server" options="-parameters" />
     </option>
   </component>
