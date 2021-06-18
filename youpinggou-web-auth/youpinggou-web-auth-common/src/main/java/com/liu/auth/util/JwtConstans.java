@@ -1,4 +1,4 @@
-package com.liu.auth.controller;
+package com.liu.auth.util;
 
 public abstract class JwtConstans {
     public static final String JWT_KEY_ID = "id";

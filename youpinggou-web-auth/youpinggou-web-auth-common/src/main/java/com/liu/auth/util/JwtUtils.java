@@ -1,6 +1,5 @@
 package com.liu.auth.util;
 
-import com.liu.auth.controller.JwtConstans;
 import com.liu.auth.pojo.UserInfo;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
