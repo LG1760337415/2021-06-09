@@ -22,6 +22,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 
 public class User implements Serializable {
+    private static final long serialVersionUID = -12366433131313123l;
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;

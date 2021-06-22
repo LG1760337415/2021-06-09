@@ -38,7 +38,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User login(User user) {
-        System.out.println("查询用户信息");
-        return null;
+
+        return userMapper.login(user);
     }
 }

@@ -13,10 +13,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BaseResult {
+public class BaseResult<T> {
     private Integer error;
     private String errmsg;
-    private Object data;
+    private T data;
 
     public BaseResult(Integer error, String errmsg) {
         this.error = error;

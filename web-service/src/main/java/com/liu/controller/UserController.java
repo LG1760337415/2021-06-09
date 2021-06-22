@@ -1,17 +1,17 @@
 package com.liu.controller;
 
 import com.liu.pojo.BaseResult;
-import com.liu.pojo.JWTResult;
+import com.liu.pojo.ResultCode;
 import com.liu.pojo.User;
 import com.liu.service.IUserService;
+import com.liu.util.VerificationCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.sql.Timestamp;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /**
  * @author 飞翔天鸟
@@ -32,16 +32,28 @@ public class UserController {
         String code = redisTemplate.opsForValue().get(user.getMobile());
         System.out.println(code);
         if (!user.getCode().equalsIgnoreCase(code)){
-            return new BaseResult(50001,"验证码错误");
+            return new BaseResult(ResultCode.ERROR,"验证码错误");
         }
         userService.saveUser(user);
-        return new BaseResult(200,"增加成功");
+        return new BaseResult(ResultCode.SUCCESS,"增加成功");
     }
-    @PostMapping("/login")
-    public JWTResult login(@RequestBody User user){
+    @PostMapping("/query")
+    public BaseResult login(@RequestBody User user){
         System.out.println(user);
-        userService.login(user);
-        long time = 2222;
-        return new JWTResult(200,"登录成功","12","DFASDFA",new Timestamp(222));
+        User u = userService.login(user);
+        if (u==null){
+            u = new User();
+            u.setId(-1);
+        }
+        return new BaseResult<User>(ResultCode.SUCCESS,"查询成功",u);
+    }
+    @GetMapping("/code")
+    public Object getCode(HttpServletResponse response) throws IOException {
+        VerificationCode verificationCode = new VerificationCode();
+        BufferedImage image = verificationCode.getImage();
+        String text = verificationCode.getText();
+        redisTemplate.opsForValue().set("USER_CODE",text);
+        VerificationCode.output(image,response.getOutputStream());
+        return null;
     }
 }

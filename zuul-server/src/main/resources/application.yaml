@@ -7,6 +7,9 @@ server:
 spring:
   application:
     name: api-web-zuul
+#  redis:
+#    host: 8.142.12.101
+#    password: 123456
 eureka:
   client:
     fetch-registry: true
@@ -20,6 +23,10 @@ zuul:
   retryable: true
   routes:
     web-service: /web/**
+    auth-service: /auth/**
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 60000
 ribbon:
   ConnectTimeout: 100
   ReadTimeout: 600
@@ -33,3 +40,10 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 6000
+
+
+jmit:
+  jwt:
+    publicKeyPath: D:\rsa\pub.rsa
+    privateKeyPath: D:\rsa\pri.rsa
+    secret: fdsafafaa21

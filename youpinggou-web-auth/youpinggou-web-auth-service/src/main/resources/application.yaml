@@ -3,10 +3,14 @@ server:
 spring:
   application:
     name: auth-service
+
+  redis:
+    host: 8.142.12.101
+    password: 123456
 eureka:
   client:
     service-url:
-      defaultZone: http://127.0.0.1:10000/eureka
+      defaultZone: http://127.0.0.1:9999/eureka
     registry-fetch-interval-seconds: 10
   instance:
     lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
@@ -14,3 +18,10 @@ eureka:
     prefer-ip-address: true
     ip-address: 127.0.0.1
     instance-id: ${spring.application.name}:${server.port}
+
+
+jmit:
+  jwt:
+    publicKeyPath: D:\rsa\pub.rsa
+    privateKeyPath: D:\rsa\pri.rsa
+    secret: fdsafafaa21

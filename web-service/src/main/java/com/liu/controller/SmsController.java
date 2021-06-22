@@ -1,13 +1,15 @@
 package com.liu.controller;
 
 import com.liu.pojo.BaseResult;
+import com.liu.pojo.ResultCode;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-//import org.springframework.amqp.core.;
+
+import javax.xml.transform.Result;
 /**
  * @author 飞翔天鸟
  * @version v1.0
@@ -23,6 +25,6 @@ public class SmsController {
     public BaseResult sendSms(@PathVariable String phone){
 
         rabbitTemplate.convertAndSend("ypg-directExchange","sms",phone);
-        return new BaseResult(200,"发送成功");
+        return new BaseResult(ResultCode.SUCCESS,"发送成功");
     }
 }
