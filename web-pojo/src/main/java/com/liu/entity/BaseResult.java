@@ -1,8 +1,10 @@
-package com.liu.pojo;
+package com.liu.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
 
 /**
  * @author 飞翔天鸟
@@ -13,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class BaseResult<T> {
+public class BaseResult<T>  implements Serializable {
     private Integer error;
     private String errmsg;
     private T data;

@@ -1,4 +1,4 @@
-package com.liu.pojo;
+package com.liu.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

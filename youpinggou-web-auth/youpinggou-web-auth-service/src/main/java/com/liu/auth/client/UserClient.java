@@ -1,12 +1,9 @@
 package com.liu.auth.client;
 
-import com.liu.pojo.BaseResult;
+import com.liu.entity.BaseResult;
 import com.liu.pojo.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author 飞翔天鸟

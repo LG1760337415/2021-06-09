@@ -2,7 +2,7 @@ package com.liu.zuul.util;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.liu.pojo.BaseResult;
+import com.liu.entity.BaseResult;
 import com.netflix.zuul.context.RequestContext;
 
 import javax.servlet.http.HttpServletResponse;

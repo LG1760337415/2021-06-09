@@ -1,5 +1,6 @@
-package com.liu.pojo;
+package com.liu.entity;
 
+import com.liu.entity.BaseResult;
 import lombok.Data;
 
 /**
@@ -9,7 +10,7 @@ import lombok.Data;
  * @date 2021/6/22 11:01
  */
 @Data
-public class LoginResult extends BaseResult{
+public class LoginResult extends BaseResult {
     private String name;
     private String token;
 

@@ -47,3 +47,17 @@ jmit:
     publicKeyPath: D:\rsa\pub.rsa
     privateKeyPath: D:\rsa\pri.rsa
     secret: fdsafafaa21
+
+  auth:
+    not-need-token:
+    - method: POST
+      path: auth/login/**
+    - method: POST
+      path: web/user/code/**
+    - method: GET
+      path: web/news/**
+    - method: GET
+      path: web/category/**
+    - method: GET
+      path: web/floors/**
+

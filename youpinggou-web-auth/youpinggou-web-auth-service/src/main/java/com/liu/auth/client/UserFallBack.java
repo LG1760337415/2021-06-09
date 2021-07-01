@@ -1,12 +1,8 @@
 package com.liu.auth.client;
 
-import com.liu.pojo.BaseResult;
-import com.liu.pojo.ResultCode;
+import com.liu.entity.BaseResult;
+import com.liu.entity.ResultCode;
 import com.liu.pojo.User;
-
-import javax.xml.crypto.Data;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author 飞翔天鸟

@@ -1,7 +1,7 @@
 package com.liu.controller;
 
-import com.liu.pojo.BaseResult;
-import com.liu.pojo.ResultCode;
+import com.liu.entity.BaseResult;
+import com.liu.entity.ResultCode;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
