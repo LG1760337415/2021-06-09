@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liu.dao.SpuMapper">
+    <resultMap id="BaseResultMap" type="Spu" autoMapping="true">
+        <id column="id" property="id"/>
+<!--        <result column="spu_name" property="spuSubname"/>-->
+<!--        <result column="spu_subname" property="spuSubname" />-->
+<!--        <result column="check_time" property="checkTime"/>-->
+<!--        <result column="check_status" property="checkStatus"/>-->
+<!--        <result column="price" property="price"/>-->
+<!--        <result column="is_on_sale" property="isOnSale"/>-->
+
+
+        <association column="cat1_id" property="cat1" autoMapping="true" select="com.liu.dao.CategoryMapper.findById"/>
+        <association column="cat2_id" property="cat2" autoMapping="true" select="com.liu.dao.CategoryMapper.findById"/>
+        <association column="cat3_id" property="cat3" autoMapping="true" select="com.liu.dao.CategoryMapper.findById"/>
+    </resultMap>
+
+    <select id="findById" resultMap="BaseResultMap">
+        select * from tb_spu where id = #{id}
+    </select>
+</mapper>

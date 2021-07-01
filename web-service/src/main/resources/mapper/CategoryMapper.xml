@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.liu.dao.CategoryMapper">
-    <resultMap id="BaseResult" type="Category">
+
+    <resultMap id="BaseResultMap" type="Category">
         <id column="id" property="id"/>
         <result property="catName" column="cat_name"/>
         <result property="parentId" column="parent_id"/>
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="BaseResult" type="Category">
 <!--        <association property="parentCategory" fetchType="lazy" column="parent_id" select="com.liu.dao.CategoryMapper.findById"/>-->
         <collection property="childrenCategories" fetchType="eager" column="id" select="com.liu.dao.CategoryMapper.findByParentId"/>
     </resultMap>
@@ -14,11 +17,11 @@
 
 
     <!--  查询所以分类  -->
-    <select id="findAll" resultMap="BaseResult">
+    <select id="findAll" resultMap="BaseResultMap">
         SELECT * FROM tb_category
     </select>
     <!--  根据id查询分类  -->
-    <select id="findById" resultMap="BaseResult">
+    <select id="findById" resultMap="BaseResultMap">
         select * from tb_category where id = #{id}
     </select>
 

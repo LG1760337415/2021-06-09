@@ -3,6 +3,7 @@ package com.liu.pojo;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.io.Serializable;
 import lombok.Data;
 import java.util.Date;
@@ -44,20 +45,23 @@ public class Spu  implements Serializable {
 	/**
 	 * 1级类目id
 	 */
+	@Transient
    	@Column(name = "cat1_id" )
-	private Integer cat1Id;
+	private Category cat1;
 
 	/**
 	 * 2级类目id
 	 */
+	@Transient
    	@Column(name = "cat2_id" )
-	private Integer cat2Id;
+	private Category cat2;
 
 	/**
 	 * 3级类目id
 	 */
+	@Transient
    	@Column(name = "cat3_id" )
-	private Integer cat3Id;
+	private Category cat3;
 
 	/**
 	 * 商品所属品牌id

@@ -26,8 +26,8 @@ public class SkuResult{
         private String bigimg;
         private String xbiglogo;
     }
-    private String skuId;
-    private String spuId;
+    private Integer skuId;
+    private Integer spuId;
     private String goodsName;//商品名称
     private Double price;//价格
     private Date onSaleDate;//上架时间
@@ -41,7 +41,7 @@ public class SkuResult{
     private List<Logo> photos;
     private String description;//描述
     private String afterSale;//售后
-    private String stock;//库存量
+    private Integer stock;//库存量
     private List<Specification> specList;//规格
     private List<Map<String,String>> skuList;//所有的排列组合对应它的skuid
 
